@@ -1,15 +1,17 @@
+import 'dart:math';
+
 void main() {
   final String numeroInformado = 1267378901.toString();
   obterMaxSequencia(numeroInformado);
 }
 
 obterMaxSequencia(String numInfo) {
-  List<String> convertStringEmListString = numInfo.split("");
+  List convertStringEmListString = numInfo.split("");
   List<int> listInt = [];
   for (var element in convertStringEmListString) {
     listInt.add(int.parse(element));
   }
-  List resultadoFinal = [];
+  List<int> resultadoFinal = [];
   List<dynamic> resultadoTempInt = [];
   List<String> resultadoTempString = [];
   var strTemp = null;
@@ -26,7 +28,7 @@ obterMaxSequencia(String numInfo) {
           resultadoTempString.add(elemento.toString());
         }
         strTemp = resultadoTempString.join();
-        resultadoFinal.add(strTemp);
+        resultadoFinal.add(int.parse(strTemp));
         resultadoTempInt.clear();
         resultadoTempString.clear();
         resultadoTempInt.add(element);
@@ -38,7 +40,7 @@ obterMaxSequencia(String numInfo) {
       resultadoTempString.add(elementos.toString());
     }
     strTemp = resultadoTempString.join();
-    resultadoFinal.add(strTemp);
+    resultadoFinal.add(int.parse(strTemp));
   }
-  print(resultadoFinal);
+  print(resultadoFinal.reduce(min));
 }
