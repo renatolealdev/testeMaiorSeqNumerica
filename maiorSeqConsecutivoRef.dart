@@ -1,22 +1,24 @@
-import 'dart:io';
+import 'dart:math'; // import da Biblioteca math do Dart..
 
 void main() {
-  print("Informe o número desejado: ");
-  final String numeroInformado = stdin.readLineSync().toString();
+// inicioalização da variável que recebe o número a ser analisado..
+  final String numeroInformado = 1134567021640123456.toString();
+// chamada da função que obterá a maior sequência dentro de número informado..
   obterMaxSequencia(numeroInformado);
 }
 
+// FUNÇÃO QUE RECEBE UMA STRINGCOMO PARÂMETRO..
 obterMaxSequencia(String numInfo) {
+//
   List convertStringEmListString = numInfo.split("");
   List<int> listInt = [];
   for (var element in convertStringEmListString) {
     listInt.add(int.parse(element));
   }
-  List<String> resultadoFinal = [];
+  List<int> resultadoFinal = [];
   List<dynamic> resultadoTempInt = [];
   List<String> resultadoTempString = [];
   var strTemp = null;
-  String? verifFinal = null;
 
   listInt.forEach((element) {
     if (resultadoTempInt.length == 0) {
@@ -30,7 +32,7 @@ obterMaxSequencia(String numInfo) {
           resultadoTempString.add(elemento.toString());
         }
         strTemp = resultadoTempString.join();
-        resultadoFinal.add(strTemp);
+        resultadoFinal.add(int.parse(strTemp));
         resultadoTempInt.clear();
         resultadoTempString.clear();
         resultadoTempInt.add(element);
@@ -42,16 +44,8 @@ obterMaxSequencia(String numInfo) {
       resultadoTempString.add(elementos.toString());
     }
     strTemp = resultadoTempString.join();
-    resultadoFinal.add(strTemp);
+    resultadoFinal.add(int.parse(strTemp));
   }
-  for (var item in resultadoFinal) {
-    if (verifFinal == null) {
-      verifFinal = item;
-    } else {
-      if (verifFinal.length < item.length) {
-        verifFinal = item;
-      }
-    }
-  }
-  print(verifFinal);
+  // resultadoFinal.reduce(max);
+  print(resultadoFinal.reduce(max));
 }
