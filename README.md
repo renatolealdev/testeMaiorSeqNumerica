@@ -1,2 +1,3 @@
-# testeMaiorSeqNumerica
- Teste realizado em processo seletivo. A meta era criar uma função que lê-se um número inteiro e retorna-se a maior sequência numérica existente naquele número.
+# Este repositório se refere a atualização de um teste reslizado por mim. O desafio era desenvolver uma função que recebesse um número inteiro qualquer, e retornasse a maior sequência númerica dentro daquele número.
+
+## Em breve atualizarei a documentação do projeto.
